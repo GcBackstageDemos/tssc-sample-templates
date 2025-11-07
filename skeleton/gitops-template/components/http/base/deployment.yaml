@@ -49,4 +49,24 @@ spec:
         env:
         - name: GIT_REPO
           value: ${{ values.repoURL }}
+        - name: MODEL_NAME
+          valueFrom:
+            secretKeyRef:
+              name: ai-agent-secrets-llm
+              key: MODEL_NAME
+        - name: LLM_API_BASE_URL
+          valueFrom:
+            secretKeyRef:
+              name: ai-agent-secrets-llm
+              key: LLM_API_BASE_URL
+        - name: TAVILY_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: ai-agent-secrets-tavily
+              key: TAVILY_API_KEY
+        - name: LLM_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: ai-agent-secrets-llm
+              key: LLM_API_KEY          
 
